@@ -1,4 +1,4 @@
-//% color="#f2c81f" icon="\uf044"
+//% color="#555ff2" icon="\uf044"
 namespace MiniFonts {
 
     let ligs: string[] = []
