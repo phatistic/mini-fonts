@@ -79,6 +79,8 @@ namespace MiniFonts {
     //% group="Create"
     //% blockid=minifont_sercharfromsheet
     //% block="Set Charcter $PngSheet=srceen_image_picker with $CharGroup but $CharStay is not move and w $twidt h $theig and bcol $bcl scol $scl"
+    //% bcl.shadow=colorindexpicker
+    //% scl.shadow=colorindexpicker
     export function setCharFromSheet(PngSheet: Image, CharGroup: string, CharStay: string, twidt: number, theig: number, bcl: number, scl: number) {
         let gwidt = Math.floor(PngSheet.width / twidt)
         let gheig = Math.floor(PngSheet.height / theig)
