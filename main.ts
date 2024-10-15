@@ -75,6 +75,30 @@ namespace MiniFonts {
 
         }
     }
+
+    //% group="Create"
+    //% blockid=minifont_sercharfromsheet
+    //% block="Set Charcter $PngSheet=srceen_image_picker with $CharGroup but $CharStay is not move and w $twidt h $theig and bcol $bcl scol $scl"
+    export function setCharFromSheet(PngSheet: Image, CharGroup: string, CharStay: string, twidt: number, theig: number, bcl: number, scl: number) {
+        let gwidt = Math.floor(PngSheet.width / twidt)
+        let gheig = Math.floor(PngSheet.height / theig)
+        let uig = image.create(twidt, theig)
+        let x0 = 0
+        let y0 = 0
+        let tx0 = 0
+        let ty0 = 0
+        for (let tvn = 0; tvn < CharGroup.length; tvn++) {
+            uig = image.create(twidt, theig)
+            x0 = tvn % gwidt
+            y0 = Math.floor(tvn / gwidt)
+            tx0 = x0 * twidt
+            ty0 = y0 * theig
+            drawTransparentImage(PngSheet, uig, 0 - tx0, 0 - ty0)
+            SetCharecter(CharGroup.charAt(tvn), uig, CharStay.includes(CharGroup.charAt(tvn)), bcl, scl)
+
+        }
+    }
+
     //% group="ArrayData"
     //% blockid=minifont_numofglyphs
     //% block="number of glyphs"
