@@ -13,11 +13,12 @@ namespace MiniFonts {
         to.drawTransparentImage(src, x, y);
     }
 
-    //% group="Create"
+    
     //% blockid= minifont_setupcharimg
     //% block="set $glyph to $imgi=screen_image_picker staying $notmove erase $bcol spacebar $scol"
     //% bcol.shadow=colorindexpicker
     //% scol.shadow=colorindexpicker
+        //% group="Create"
     export function SetCharecter(glyph: string, imgi: Image, notmove: boolean, bcol: number, scol: number) {
         let scnwidt = true
         let scwidt = false
@@ -76,12 +77,13 @@ namespace MiniFonts {
         }
     }
 
-    //% group="Create"
+    
     //% blockid=minifont_sercharfromsheet
-    //% block="Set Charcter $PngSheet=srceen_image_picker with $CharGroup but $CharStay is not move and w $twidt h $theig and bcol $bcl scol $scl"
+    //% block="Set Charcter $PngSheet=srceen_image_picker with $GroupChar but $StayChar is not move and w $twidt h $theig and bcol $bcl scol $scl"
     //% bcl.shadow=colorindexpicker
     //% scl.shadow=colorindexpicker
-    export function setCharFromSheet(PngSheet: Image, CharGroup: string, CharStay: string, twidt: number, theig: number, bcl: number, scl: number) {
+        //% group="Create"
+    export function setCharFromSheet(PngSheet: Image, GroupChar: string, StayChar: string, twidt: number, theig: number, bcl: number, scl: number) {
         let gwidt = Math.floor(PngSheet.width / twidt)
         let gheig = Math.floor(PngSheet.height / theig)
         let uig = image.create(twidt, theig)
@@ -89,43 +91,47 @@ namespace MiniFonts {
         let y0 = 0
         let tx0 = 0
         let ty0 = 0
-        for (let tvn = 0; tvn < CharGroup.length; tvn++) {
+        for (let tvn = 0; tvn < GroupChar.length; tvn++) {
             uig = image.create(twidt, theig)
             x0 = tvn % gwidt
             y0 = Math.floor(tvn / gwidt)
             tx0 = x0 * twidt
             ty0 = y0 * theig
             drawTransparentImage(PngSheet, uig, 0 - tx0, 0 - ty0)
-            SetCharecter(CharGroup.charAt(tvn), uig, CharStay.includes(CharGroup.charAt(tvn)), bcl, scl)
+            SetCharecter(GroupChar.charAt(tvn), uig, StayChar.includes(GroupChar.charAt(tvn)), bcl, scl)
 
         }
     }
 
-    //% group="ArrayData"
+    
     //% blockid=minifont_numofglyphs
     //% block="number of glyphs"
+        //% group="ArrayData"
     export function NumOfGlyphs(): number {
         return ligs.length
     }
 
-    //% group="ArrayData"
+    
     //% blockid=minifont_arrofglyphimg
     //% block="array of glyph images"
+        //% group="ArrayData"
     export function ImageArray(): Image[] {
         return ligages
     }
 
-    //% group="ArrayData"
+    
     //% blockid=minifont_arrofglyphs
     //% block="array of glyphs"
+        //% group="ArrayData"
     export function GlyphArray(): String[] {
         return ligs
     }
 
-    //% group="Render"
+    
     //% blockid=minifont_createimgofstr
     //% block="create the image of $input in $iwidt and fill $icol"
     //% icol.shadow=colorindexpicker
+        //% group="Render"
     export function SetImage(input: string, iwidt: number,icol: number) {
         let heig = 0
         let widt = 0
@@ -229,16 +235,18 @@ namespace MiniFonts {
 
     }
 
-    //% group="Modify"
+    
     //% blockid=minifont_setspacingletter
     //% block="set letter spacing to $input"
+        //% group="Modify"
     export function SetSpace(input: number) {
         letterspace = input
     }
 
-    //% group="Modify"
+    
     //% blockid=minifont_changespacingletter
     //% block="change letter spacing by $input"
+        //% group="Modify"
     export function ChangeSpace(input: number) {
         letterspace += input
     }
