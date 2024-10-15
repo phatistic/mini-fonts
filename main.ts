@@ -228,7 +228,9 @@ namespace MiniFonts {
         }
         if (icol > 0) {
             for (let ico = 0; ico < 16; ico++) {
-                output.replace(ico, icol)
+                if (ico > 0) {
+                    output.replace(ico, icol)
+                }
             }
         }
         return output
